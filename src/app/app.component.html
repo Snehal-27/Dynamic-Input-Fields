@@ -1,0 +1,19 @@
+<form [formGroup]="userForm" (ngSubmit)="send(userForm.value)">
+  <label>Enter Your Name </label>
+    <input type="text" formControlName="name">
+  <br>
+  <br>  
+  <div *ngFor="let phone of getPhonesFormControls(); let i = index">
+    <label>Enter Your Phone {{i}} </label>    
+    <input [formControl]="phone" type="text">
+  <button (click)="removePhone(i)">Remove Phone</button>    
+  </div>
+  <br>  
+  <button (click)="addPhone()">Add new phone</button>
+  <br>
+  <br>  
+  <input type="submit">
+</form>
+  <br>  
+
+{{userForm.value | json}}
